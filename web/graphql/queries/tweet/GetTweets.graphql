@@ -34,7 +34,6 @@ query GetTweets($userId: Float){
             }
             _count {
                 likes
-                comments
             }
             image {
                 filename

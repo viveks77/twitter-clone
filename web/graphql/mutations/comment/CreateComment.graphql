@@ -23,7 +23,6 @@ mutation CreateComment($file: Upload, $content: String!, $tweetId: Float!) {
         }
         _count {
             likes
-            comments
         }
         image {
             filename

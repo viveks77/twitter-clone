@@ -30,7 +30,7 @@ const Profile = (props: Props) => {
             <TweetsWrapper>
                 <Header heading={data?.getLoggedInUser.username} />
                 <ProfileHeader user={data?.getLoggedInUser} />
-                {/* <TweetsFlow tweetsArr={tweets as Tweet[]}/> */}
+                <TweetsFlow tweetsArr={tweets as Tweet[]}/>
             </TweetsWrapper>
             <Sidebar />
         </Flex>

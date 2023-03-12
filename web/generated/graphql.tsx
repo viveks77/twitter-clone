@@ -40,7 +40,6 @@ export type Comment = {
 
 export type CommentCount = {
   __typename?: 'CommentCount';
-  comments?: Maybe<Scalars['Float']>;
   likes?: Maybe<Scalars['Float']>;
 };
 
@@ -229,7 +228,7 @@ export type CreateCommentMutationVariables = Exact<{
 }>;
 
 
-export type CreateCommentMutation = { __typename?: 'Mutation', createComment: { __typename?: 'Comment', id: number, content: string, createdAt: any, userId: number, tweetId?: number | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null, comments?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null } };
+export type CreateCommentMutation = { __typename?: 'Mutation', createComment: { __typename?: 'Comment', id: number, content: string, createdAt: any, userId: number, tweetId?: number | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null } };
 
 export type CreateTweetMutationVariables = Exact<{
   file?: InputMaybe<Scalars['Upload']>;
@@ -306,14 +305,14 @@ export type GetExploreQuery = { __typename?: 'Query', getExplore?: Array<{ __typ
 export type GetFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetFeedQuery = { __typename?: 'Query', getFeed?: Array<{ __typename?: 'Tweet', content: string, createdAt: any, id: number, isLiked?: boolean | null, image?: Array<{ __typename?: 'TweetImages', filename: string }> | null, _count: { __typename?: 'Count', likes?: number | null, comments?: number | null }, comments?: Array<{ __typename?: 'Comment', id: number, content: string, createdAt: any, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null, comments?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null }> | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null }> | null };
+export type GetFeedQuery = { __typename?: 'Query', getFeed?: Array<{ __typename?: 'Tweet', content: string, createdAt: any, id: number, isLiked?: boolean | null, image?: Array<{ __typename?: 'TweetImages', filename: string }> | null, _count: { __typename?: 'Count', likes?: number | null, comments?: number | null }, comments?: Array<{ __typename?: 'Comment', id: number, content: string, createdAt: any, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null }> | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null }> | null };
 
 export type GetTweetsQueryVariables = Exact<{
   userId?: InputMaybe<Scalars['Float']>;
 }>;
 
 
-export type GetTweetsQuery = { __typename?: 'Query', getTweets: { __typename?: 'Tweet', content: string, createdAt: any, id: number, isLiked?: boolean | null, image?: Array<{ __typename?: 'TweetImages', filename: string }> | null, _count: { __typename?: 'Count', likes?: number | null, comments?: number | null }, comments?: Array<{ __typename?: 'Comment', id: number, content: string, createdAt: any, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null, comments?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null }> | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null } };
+export type GetTweetsQuery = { __typename?: 'Query', getTweets: { __typename?: 'Tweet', content: string, createdAt: any, id: number, isLiked?: boolean | null, image?: Array<{ __typename?: 'TweetImages', filename: string }> | null, _count: { __typename?: 'Count', likes?: number | null, comments?: number | null }, comments?: Array<{ __typename?: 'Comment', id: number, content: string, createdAt: any, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null, _count: { __typename?: 'CommentCount', likes?: number | null }, image?: Array<{ __typename?: 'CommentImages', filename: string }> | null }> | null, user?: { __typename?: 'User', id: number, email: string, username: string, firstName: string, lastName: string, bio?: string | null, isFollowing?: boolean | null, isMe?: boolean | null, avatar?: { __typename?: 'Avatar', filename?: string | null } | null, _count?: { __typename?: 'FollowCount', followers?: number | null, followings?: number | null } | null } | null } };
 
 export type GetLoggedInUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -357,7 +356,6 @@ export const CreateCommentDocument = gql`
     }
     _count {
       likes
-      comments
     }
     image {
       filename
@@ -795,7 +793,6 @@ export const GetFeedDocument = gql`
       }
       _count {
         likes
-        comments
       }
       image {
         filename
@@ -885,7 +882,6 @@ export const GetTweetsDocument = gql`
       }
       _count {
         likes
-        comments
       }
       image {
         filename

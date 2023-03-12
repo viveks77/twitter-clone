@@ -34,7 +34,6 @@ query GetFeed {
             }
             _count {
                 likes
-                comments
             }
             image {
                 filename
