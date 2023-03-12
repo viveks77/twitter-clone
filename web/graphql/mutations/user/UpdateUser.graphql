@@ -1,0 +1,28 @@
+mutation UpdateUser(
+    $file: Upload
+    $lastName: String!
+    $firstName: String!
+    $bio: String
+    $email: String!
+    $username: String!
+) {
+    updateUser(
+        avatar: $file
+        user: {
+            lastName: $lastName
+            firstName: $firstName
+            bio: $bio
+            email: $email
+            username: $username
+        }
+    ) {
+        username
+        email
+        firstName
+        lastName
+        bio
+        avatar {
+            filename
+        }
+    }
+}

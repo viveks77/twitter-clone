@@ -1,0 +1,11 @@
+mutation CreateTweet($file: Upload, $content: String!) {
+    createTweet(file: $file, tweetDto: { content: $content }) {
+        id
+        content
+        createdAt
+        user {
+            username
+            email
+        }
+    }
+}

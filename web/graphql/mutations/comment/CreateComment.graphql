@@ -1,0 +1,33 @@
+mutation CreateComment($file: Upload, $content: String!, $tweetId: Float!) {
+    createComment(file: $file, commentDto: { content: $content, tweetId: $tweetId }) {
+        id
+        content
+        createdAt
+        userId
+        user {
+            id
+            email
+            username
+            firstName
+            lastName
+            bio
+            avatar {
+                filename
+            }
+            _count {
+                followers
+                followings
+            }
+            isFollowing
+            isMe
+        }
+        _count {
+            likes
+            comments
+        }
+        image {
+            filename
+        }
+        tweetId
+    }
+}

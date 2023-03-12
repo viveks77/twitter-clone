@@ -1,0 +1,7 @@
+mutation LikeTweet($tweetId: Float!) {
+    likeTweet(tweetId: $tweetId)
+}
+
+mutation RemoveTweetLike($tweetId: Float!) {
+    removeTweetLike(tweetId: $tweetId)
+}

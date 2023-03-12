@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  email      String    @unique @db.VarChar(255)
+  username   String    @unique @db.VarChar(255)
+  password   String    @db.VarChar(255)
+  firstName  String    @db.VarChar(255)
+  lastName   String    @db.VarChar(255)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now())
+  bio        String    @default("") @db.VarChar(255)
+  tweets     Tweet[]
+  avatar     Avatar?
+  comments   Comment[]
+  likes      Like[]
+  followers  Follow[]  @relation("follower")
+  followings Follow[]  @relation("following")
+  retweets   Retweet[]
+}
+
+model Tweet {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  content   String
+  createdAt DateTime  @default(now())
+  image     Images[]
+  isRetweet Boolean   @default(false)
+  comments  Comment[]
+  likes     Like[]
+  retweets  Retweet[]
+}
+
+model Images {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  createdAt DateTime @default(now())
+  tweet     Tweet?   @relation(fields: [tweetId], references: [id])
+  tweetId   Int?
+  comment   Comment? @relation(fields: [commentId], references: [id])
+  commentId Int?
+}
+
+model Avatar {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  createdAt DateTime @default(now())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id         Int       @id @default(autoincrement())
+  tweetId    Int?
+  content    String
+  image      Images[]
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])
+  tweet      Tweet?    @relation(fields: [tweetId], references: [id])
+  createdAt  DateTime  @default(now())
+  likes      Like[]
+}
+
+model Like {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  tweetId   Int?
+  tweet     Tweet?   @relation(fields: [tweetId], references: [id])
+  commentId Int?
+  comment   Comment? @relation(fields: [commentId], references: [id])
+}
+
+model Follow {
+  id         Int  @id @default(autoincrement())
+  userId     Int
+  user       User @relation("following", fields: [userId], references: [id])
+  followerId Int
+  follower   User @relation("follower", fields: [followerId], references: [id])
+}
+
+model Retweet {
+  id      Int   @id @default(autoincrement())
+  tweetId Int
+  tweet   Tweet @relation(fields: [tweetId], references: [id])
+  userId  Int
+  user    User  @relation(fields: [userId], references: [id])
+}

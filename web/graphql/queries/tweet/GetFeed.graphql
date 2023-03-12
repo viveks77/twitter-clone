@@ -1,0 +1,61 @@
+query GetFeed {
+    getFeed {
+        content
+        createdAt
+        id
+        isLiked
+        image {
+            filename
+        }
+        _count {
+            likes
+            comments
+        }
+        comments {
+            id
+            content
+            createdAt
+            user {
+                id
+                email
+                username
+                firstName
+                lastName
+                bio
+                avatar {
+                    filename
+                }
+                _count {
+                    followers
+                    followings
+                }
+                isFollowing
+                isMe
+            }
+            _count {
+                likes
+                comments
+            }
+            image {
+                filename
+            }
+        }
+        user {
+            id
+            email
+            username
+            firstName
+            lastName
+            bio
+            avatar {
+                filename
+            }
+            _count {
+                followers
+                followings
+            }
+            isFollowing
+            isMe
+        }
+    }
+}

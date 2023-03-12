@@ -1,0 +1,12 @@
+query GetLoggedInUser {
+    getLoggedInUser {
+        username
+        email
+        firstName
+        lastName
+        bio
+        avatar {
+            filename
+        }
+    }
+}

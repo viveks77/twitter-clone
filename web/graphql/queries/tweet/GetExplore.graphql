@@ -1,0 +1,32 @@
+query GetExplore {
+    getExplore {
+        content
+        createdAt
+        id
+        isLiked
+        image {
+            filename
+        }
+        _count {
+            likes
+            comments
+        }
+        user {
+            id
+            email
+            username
+            firstName
+            lastName
+            bio
+            avatar {
+                filename
+            }
+            _count {
+                followers
+                followings
+            }
+            isFollowing
+            isMe
+        }
+    }
+}

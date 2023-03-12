@@ -1,0 +1,17 @@
+query GetSuggestedUsers {
+    getSuggestedUsers {
+        id
+        email
+        username
+        firstName
+        lastName
+        bio
+        avatar {
+            filename
+        }
+        _count{
+            followers
+            followings
+        }
+    }
+}

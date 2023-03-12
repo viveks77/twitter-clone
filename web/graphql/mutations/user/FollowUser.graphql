@@ -1,0 +1,7 @@
+mutation FollowUser($followerId: Float!) {
+    followUser(id: $followerId)
+}
+
+mutation UnfollowUser($followerId: Float!) {
+    unfollowUser(id: $followerId)
+}
