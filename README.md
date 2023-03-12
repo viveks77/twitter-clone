@@ -3,11 +3,22 @@
 > Twitter clone made using typescript, Next.js, Node.js, prisma, apollo graphql server and chakra UI (WIP).
 
 ## Screenshots
+Login
 ![Login](screenshots/Login.png)
+
+Register
 ![Register](screenshots/Register.png)
+
+Home
 ![Homepage](screenshots/Home1.png)
+
+Explore
 ![Explore](screenshots/Explore.png)
+
+Profile
 ![Profile](screenshots/Profile.png)
+
+Comments
 ![Comments](screenshots/Comment.png)
 
 ## Installation
