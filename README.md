@@ -1,6 +1,6 @@
 ## Twitter Clone
 
-> Twitter clone made using typescript, Next.js, Node.js, prisma, graphql and chakra UI (WIP).
+> Twitter clone made using typescript, Next.js, Node.js, PostgreSQL, Prisma, graphQL and chakra UI (WIP).
 
 ## Screenshots
 Login
